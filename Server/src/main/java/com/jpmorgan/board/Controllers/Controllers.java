@@ -8,13 +8,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 @Controller
 @RestController
 public class Controllers {
+
     @Autowired
-    private ArrayList arrayList;
+    private ArrayList arrayList ;
+
+
+
+
+
 
     @GetMapping(path = "/", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
@@ -24,6 +31,16 @@ public class Controllers {
     }
 
 
+    @GetMapping(path = "/dummy", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public ArrayList dummy(){
+        Message message = new Message("abdul.daim26@gmail.com", "We", "s");
+        Message message2 = new Message("abdul.daim26@gmail.com", "We", "s");
+        arrayList.add(message);
+        arrayList.add(message2);
+        return arrayList;
+    }
+
     @PostMapping(path="/add", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public Message createMessage(@RequestBody  Message msg){
@@ -31,10 +48,10 @@ public class Controllers {
         String email = msg.getEmail();
         String message = msg.getMessage();
         String key = msg.getKey();
-        String substrMessage = message.substring(0,300);
-        Message Storable = new Message(email, substrMessage, key);
+
+        arrayList.add(msg);
         
-        return Storable;
+        return msg;
 
     }
 
@@ -42,13 +59,11 @@ public class Controllers {
     @GetMapping(path = "/api/v1", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public ArrayList collections(){
-        Message message = new Message("abdul.daim26@gmail.com", "We", "s");
-        Message message2 = new Message("abdul.daim26@gmail.com", "We", "s");
-        arrayList.add(message);
-        arrayList.add(message2);
 
-
+        Collections.reverse(arrayList);
         return arrayList;
+
+
 
 
 
