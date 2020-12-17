@@ -34,7 +34,7 @@ function Messages() {
 
         async function LoadDummyContent() {
             try {
-              const dummy = await api.get('/dummy');
+               await api.get('/dummy');
               alert("Dummy Contents Updated")
               
             }
