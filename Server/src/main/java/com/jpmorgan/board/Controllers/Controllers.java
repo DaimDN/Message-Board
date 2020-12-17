@@ -35,11 +35,11 @@ public class Controllers {
 
         StringBuffer stringBuffer = new StringBuffer();
 
-        if(dummyMessage.length() <= 500){
+        if(dummyMessage.length() <= 499){
             stringBuffer.append(dummyMessage);
         }
         else{
-            stringBuffer.append(dummyMessage.substring(0, 500));
+            stringBuffer.append(dummyMessage.substring(0, 499));
 
         }
         String newMessage = stringBuffer.toString();
@@ -67,10 +67,10 @@ public class Controllers {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        if(message.length() <= 500){
+        if(message.length() <= 499){
             stringBuilder.append(message);
         }else{
-            stringBuilder.append(message.substring(0, 500));
+            stringBuilder.append(message.substring(0, 499));
         }
         String newMsg = stringBuilder.toString();
 
