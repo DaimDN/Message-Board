@@ -2,14 +2,13 @@ package com.jpmorgan.board.Controllers;
 
 import com.jpmorgan.board.Services.LandingPage;
 import com.jpmorgan.board.Services.Message;
+import javafx.scene.layout.Priority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
+import java.util.*;
 
 @Controller
 @RestController
@@ -19,6 +18,7 @@ public class Controllers {
     @Autowired
     private ArrayList arrayList ;
 
+
     @CrossOrigin("http://localhost:3000")
     @GetMapping(path = "/", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
@@ -27,7 +27,7 @@ public class Controllers {
         return title;
     }
 
-   
+    @CrossOrigin("http://localhost:3000")
     @GetMapping(path = "/dummy", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public ArrayList dummy(){
@@ -81,13 +81,24 @@ public class Controllers {
 
     }
 
-
+    @CrossOrigin("http://localhost:3000")
     @GetMapping(path = "/api/v1", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public ArrayList collections(){
+    public List collections(){
 
-        Collections.reverse(arrayList);
-        return arrayList;
+
+            List newList = new LinkedList<Message>();
+
+            Iterator iterator = arrayList.iterator();
+            while(iterator.hasNext()){
+                Message m = (Message) iterator.next();
+                newList.add(m);
+
+            }
+
+            Collections.reverse(newList);
+
+        return newList;
 
 
 
