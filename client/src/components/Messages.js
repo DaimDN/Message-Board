@@ -46,7 +46,6 @@ function Messages() {
 
          LoadDummyContent();
 
-
     }
             
 
