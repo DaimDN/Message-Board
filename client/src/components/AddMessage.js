@@ -57,7 +57,7 @@ const { email, message, key } = formData;
             <div className="form-group">
           <input
             type="email"
-            placeholder="Email Address"
+            placeholder="name@example.com"
             name="email"
             value={email}
             onChange={onChange}
@@ -70,7 +70,7 @@ const { email, message, key } = formData;
         <div className="form-group">
           <textarea
             type="text"
-            placeholder="Enter Message"
+            placeholder=""
             name="message"
             rows="4"
             value={message}
