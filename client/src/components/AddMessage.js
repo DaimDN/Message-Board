@@ -28,7 +28,7 @@ const { email, message, key } = formData;
         
         (async function postMessage() {
             try {
-              const request = await api.post('/add', data);
+               await api.post('/add', data);
               
             }
             
