@@ -6,7 +6,7 @@ function Messages() {
 
     useEffect(() => {
 
-        async function getMessage() {
+        (async function getMessage() {
             try {
               const response = await api.get('/api/v1');
             
@@ -22,8 +22,8 @@ function Messages() {
                 console.log(error);
                 setMessage(undefined);
             }
-                }
-            getMessage();
+                })();
+            
     });
 
 
@@ -32,7 +32,7 @@ function Messages() {
     const Handler = e => {
         e.preventDefault();
 
-        async function LoadDummyContent() {
+        (async function LoadDummyContent() {
             try {
                await api.get('/dummy');
               alert("Dummy Contents Updated")
@@ -42,9 +42,7 @@ function Messages() {
             catch (error) {          
                 console.log(error);
             }
-         }
-
-         LoadDummyContent();
+         })();
 
     }
             

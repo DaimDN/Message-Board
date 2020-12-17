@@ -26,7 +26,7 @@ const { email, message, key } = formData;
 
         var data = {email, message, key};
         
-        async function postMessage() {
+        (async function postMessage() {
             try {
               const request = await api.post('/add', data);
               
@@ -35,8 +35,8 @@ const { email, message, key } = formData;
             catch (error) {          
                 console.log(error);
             }
-         }
-         postMessage();
+         })();
+         
 
          setFormData({
              email: '',

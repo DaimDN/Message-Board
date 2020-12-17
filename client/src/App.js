@@ -11,7 +11,7 @@ const [data, setData] = useState(undefined);
 
 useEffect(() => {
 
-    async function getLanding() {
+    (async function getLanding() {
         try {
           const response = await api.get('/');
         
@@ -27,9 +27,8 @@ useEffect(() => {
             console.log(error);
             setData(undefined);
         }
-      }
+      })();
    
-      getLanding(); 
 
       if(data === undefined){
         setDisplay(false);
